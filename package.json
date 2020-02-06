@@ -2,17 +2,20 @@
   "name": "webapp2pdf",
   "version": "0.1.0",
   "description": "CLI that prints a website with JavaScript generated content into a PDF.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "./node_modules/.bin/tsc -p .",
-    "compile:watch": "./node_modules/.bin/tsc -p . -w",
-    "postinstall": "./node_modules/.bin/tsc -p ."
+    "build": "./node_modules/.bin/tsc -p .",
+    "build:watch": "./node_modules/.bin/tsc -p . -w",
+    "prepare": "npm run build"
   },
   "preferGlobal": true,
   "bin": {
-    "webapp2pdf": "./src/webapp2pdf.js"
+    "webapp2pdf": "./dist/webapp2pdf.js"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tobiasholler/webapp2pdf.git"
