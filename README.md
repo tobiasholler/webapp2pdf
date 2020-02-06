@@ -4,7 +4,7 @@ CLI that prints a website with JavaScript generated content into a PDF.
 
 ## Installing
 ```bash
-npm install -g https://github.com/tobiasholler/webapp2pdf
+npm i -g webapp2pdf
 ```
 
 ## Usage

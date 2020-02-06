@@ -2,7 +2,7 @@
   "name": "webapp2pdf",
   "version": "0.1.0",
   "description": "CLI that prints a website with JavaScript generated content into a PDF.",
-  "main": "index.js",
+  "main": "dist/webapp2pdf.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc -p .",
@@ -35,5 +35,6 @@
     "@types/node": "^13.7.0",
     "@types/yargs": "^15.0.3",
     "typescript": "^3.7.5"
-  }
+  },
+  "keywords": []
 }
