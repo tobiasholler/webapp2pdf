@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc -p .",
     "build:watch": "./node_modules/.bin/tsc -p . -w",
-    "install": "npm run build"
+    "prepare": "npm run build"
   },
   "preferGlobal": true,
   "bin": {
