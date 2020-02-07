@@ -11,20 +11,30 @@ const argv = yargs
     demand: true,
     type: "string"
   })
-  .option("outputFile", {
+  .option("outputfile", {
     alias: "o",
     demand: true,
-    type: "string"
+    type: "string",
+  })
+  .option("nosandbox", {
+    alias: "s",
+    demand: false,
+    type: "boolean",
+    default: false
   })
   .help()
   .argv;
 
 (async () => {
-  const browser = await puppeteer.launch();
+  let puppeteerArgs: string[] = []
+  if (argv.nosandbox) puppeteerArgs.push("--no-sandbox");
+  const browser = await puppeteer.launch({
+    args: puppeteerArgs
+  });
   const page = await browser.newPage();
   await page.goto(argv.website, {waitUntil: 'networkidle0'});
   const pdf = await page.pdf({ format: 'A4' });
-  fs.writeFile(argv.outputFile, pdf, async (err) => {
+  fs.writeFile(argv.outputfile, pdf, async (err) => {
     if (err) throw err;
     await browser.close();
     process.exit();

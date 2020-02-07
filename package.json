@@ -1,6 +1,6 @@
 {
   "name": "webapp2pdf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI that prints a website with JavaScript generated content into a PDF.",
   "main": "dist/webapp2pdf.js",
   "scripts": {
