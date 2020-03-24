@@ -22,6 +22,12 @@ const argv = yargs
     type: "boolean",
     default: false
   })
+  .option("scalefactor", {
+    alias: "f",
+    demand: false,
+    type: "number",
+    default: 1
+  })
   .help()
   .argv;
 
@@ -32,6 +38,11 @@ const argv = yargs
     args: puppeteerArgs
   });
   const page = await browser.newPage();
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+    deviceScaleFactor: argv.scalefactor || 1
+  });
   await page.goto(argv.website, {waitUntil: 'networkidle0'});
   const pdf = await page.pdf({ format: 'A4' });
   fs.writeFile(argv.outputfile, pdf, async (err) => {
